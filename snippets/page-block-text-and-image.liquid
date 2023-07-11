@@ -4,7 +4,7 @@
       <div class="feature-row__item">
         <div style="margin: 0 auto; max-width: {{ block.settings.image_width }}px;">
           {% if block.settings.image != blank %}
-          {% if block.settings.button_label != blank and block.settings.button_link != blank %}<a href="{{ block.settings.button_link }}"><span class="is-sr0nly">Ultrapress VQSG Link</span>{% endif %}
+          {% if block.settings.button_label != blank and block.settings.button_link != blank %}<a href="{{ block.settings.button_link }}"><span class="is-sr0nly">{{ block.settings.button_link | handle | replace: "-", " " }}</span>{% endif %}
             <div class="image-wrap" style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.image.aspect_ratio }}%;">
               {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
               <img class="feature-row__image lazyload"

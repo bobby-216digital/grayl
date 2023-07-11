@@ -1,12 +1,15 @@
-{%- comment %}<locksmith:fd80>{% endcomment -%}
+{%- comment %}<locksmith:964d>{% endcomment -%}
   {%- include 'locksmith' -%}
-{%- comment %}</locksmith:fd80>{% endcomment -%}
+{%- comment %}</locksmith:964d>{% endcomment -%}
 
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
 <head>
+  {% render 'elevar-head-listener' %}
+  {% render 'elevar-head' %}
+{{ locksmith_initializations }}
+{% include "starapps-core" %}
 
-   {{ locksmith_initializations }}
    <!--Excluded pages from search engines-->
   {% if handle contains 'gp23-covert-dummy' %}
 <meta name="robots" content="noindex">
@@ -16,12 +19,9 @@
 <meta name="robots" content="noindex">
 {% endif %}
 
+<script>{% include 'civilpixel-loader' %}</script>
   
-  {% render 'elevar-head-listener' %}
-  {% render 'elevar-head' %}<script>{% include 'civilpixel-loader' %}</script>
   <meta name="google-site-verification" content="AIGYFTR4onI4ZVDCXI1hkuHtp7lOp8nEdfEp-5Q-iJo" />
-{% include "starapps-core" %}
-
   <meta name="facebook-domain-verification" content="uul6gr39or15jwjdzcjeflv3ip2c13" />
   <meta name="p:domain_verify" content="c18ab4e6cd9cacc196288bbb51c0d00d"/>
   <meta charset="utf-8">
@@ -49,10 +49,10 @@
   <title>{{ seo_title }}</title>
 
   {%- if page_description -%}
-  {%- comment %}<locksmith:bc64>{% endcomment -%}
+  {%- comment %}<locksmith:8826>{% endcomment -%}
     {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
     {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-  {%- comment %}</locksmith:bc64>{% endcomment -%}
+  {%- comment %}</locksmith:8826>{% endcomment -%}
   {%- endif -%}
 
   {% include 'social-meta-tags' %}
@@ -86,6 +86,10 @@
     .sr-only {
   		position: absolute;
   		left: -10000px;
+     }
+
+     .ql-font-armata, .article__date a, #RecoverPassword, #customer_register_link {
+      text-decoration: underline !important;
      }
   {% endstyle %}
   
@@ -370,5 +374,58 @@ if(atcButton){
 {% endif %}
 
   <script src="//prod.preordrly.com/Scripts/preorder.min.js?env=https://prod.preordrly.com&amp;v=1&amp;shop=grayl.myshopify.com"></script>
+  <!-- Start of thegrayl Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=64c2966a-6d69-46cb-b94f-21d8506162f5"> </script>
+<!-- End of thegrayl Zendesk Widget script -->
+
+  <!--Klaviyo Add to Cart Trigger-->
+
+  <script>
+window.addEventListener('load', function() {
+var _learnq = window._learnq || [];
+function addedToCart() {
+  fetch(`${window.location.origin}/cart.js`)
+  .then(res => res.clone().json().then(data => {
+    var cart = {
+      total_price: data.total_price/100,
+      $value: data.total_price/100,
+      total_discount: data.total_discount,
+      original_total_price: data.original_total_price/100,
+      items: data.items
+    }
+    if (item !== 'undefined') {
+      cart = Object.assign(cart, item)
+    }
+    if (klAjax) {
+        _learnq.push(['track', 'Added to Cart', cart]);
+        klAjax = false;
+      }
+  }))
+};
+(function (ns, fetch) {
+  ns.fetch = function() {
+    const response = fetch.apply(this, arguments);
+    response.then(res => {
+      if (`${window.location.origin}/cart/add.js`
+      	.includes(res.url)) {
+        	addedToCart()
+      }
+    });
+    return response
+  }
+}(window, window.fetch));
+var klAjax = true;
+var atcButtons = document.querySelectorAll("form[action*='/cart/add'] button[type='submit']");
+for (var i = 0; i < atcButtons.length; i++) {
+    atcButtons[i].addEventListener("click", function() {
+      if (klAjax) {
+        _learnq.push(['track', 'Added to Cart', item]);
+        klAjax = false;
+      }
+    })
+}
+});
+</script>
+  
 </body>
 </html>
