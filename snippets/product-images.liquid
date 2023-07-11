@@ -84,9 +84,8 @@
                   {% endif %}
 
                   {% if settings.product_zoom_enable %}
-                    <button type="button" class="btn btn--body btn--circle js-photoswipe__zoom product__photo-zoom">
+                    <button aria-label="Zoom image" type="button" class="btn btn--body btn--circle js-photoswipe__zoom product__photo-zoom">
                       {% include 'icon-search' %}
-                      <span class="icon__fallback-text">{{ 'general.accessibility.close_modal' | t }}</span>
                     </button>
                   {% endif %}
                 </div>
@@ -129,7 +128,7 @@
                     {% endif %}
                     {% if video_type == 'mp4' %}
                       <video
-                        loop playsinline
+                        loop playsinline controls
                         {% if settings.product_video_style == 'muted' %}muted{% endif %}
                         {% if settings.product_video_style == 'unmuted' %}controls{% endif %}
                         controlsList="nodownload"
