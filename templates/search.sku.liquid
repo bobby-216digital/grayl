@@ -1,0 +1,29 @@
+{%- layout none -%}
+{%- comment -%}
+/*
+ * Simple SKU Search Endpoint
+ *
+ * Copyright (c) 2016 Jason Bowman (jason@freakdesign.com.au)
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ *
+ */ 
+{%- endcomment -%}
+{%- paginate search.results by 250 -%}
+{%- if search.performed -%}
+{"products": [
+	{%- comment %}<locksmith:dcbe>{% endcomment -%}
+	  {%- assign locksmith_7e9f_forloop__size = 0 %}{%- for item in search.results -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_7e9f_forloop__size = locksmith_7e9f_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_7e9f_forloop__index = nil -%}
+	{%- comment %}</locksmith:dcbe>{% endcomment -%}
+	{%- for item in search.results -%}
+		{%- comment %}<locksmith:db49>{% endcomment -%}
+		  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_7e9f_forloop__index == nil %}{% assign locksmith_7e9f_forloop__index = 1 %}{% assign locksmith_7e9f_forloop__index0 = 0 %}{% else %}{% assign locksmith_7e9f_forloop__index = locksmith_7e9f_forloop__index | plus: 1 %}{% assign locksmith_7e9f_forloop__index0 = locksmith_7e9f_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_7e9f_forloop__index == 1 %}{% assign locksmith_7e9f_forloop__first = true %}{% else %}{% assign locksmith_7e9f_forloop__first = false %}{% endif %}{% if locksmith_7e9f_forloop__index == locksmith_7e9f_forloop__size %}{% assign locksmith_7e9f_forloop__last = true %}{% else %}{% assign locksmith_7e9f_forloop__last = false %}{% endif %}{% assign locksmith_7e9f_forloop__rindex = locksmith_7e9f_forloop__size | minus: locksmith_7e9f_forloop__index | minus: 1 %}{% assign locksmith_7e9f_forloop__rindex0 = locksmith_7e9f_forloop__size | minus: locksmith_7e9f_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+		{%- comment %}</locksmith:db49>{% endcomment -%}
+		{%- unless item.object_type == 'product' -%}{%- continue -%}{%- endunless -%}
+		{{- item | json -}}
+		{%- unless locksmith_7e9f_forloop__last %},{% endunless -%}
+	{%- endfor -%}
+]}
+{%- endif -%}
+{%- endpaginate -%}

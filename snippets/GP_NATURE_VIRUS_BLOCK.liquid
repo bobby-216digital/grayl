@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="column column-image" style="background-image: url('https://cdn.shopify.com/s/files/1/2172/9959/files/GP_NAT_EXPLODED_BOTTLE.jpg?v=1678130854');"></div>
+      <div class="column2 column-image2" style="background-image: url('https://cdn.shopify.com/s/files/1/2172/9959/files/GLOBAL_PROTECTION_INFO.jpg?v=1678131485');"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
+  height: 800px;
+}
+
+.column, .column2 {
+  flex: 1;
+  padding: 0 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .column, .column2 {
+    flex: 100%;
+    padding: 0;
+  }
+}
+
+.column-image, .column-image2 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+  
+</style>

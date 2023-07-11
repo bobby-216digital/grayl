@@ -1,0 +1,33 @@
+#mc_embed_signup {
+  max-width: 300px;
+  min-width: 200px;
+  background-color: #3C3935;}
+
+#mc-embedded-subscribe-form { 
+padding: 16px;
+font-family: 'Armata', sans-serif;
+}
+#mce-EMAIL, .placeholder {
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: none;
+  font-family: 'Armata', sans-serif;
+  font-size: 1em;
+    background-color: #605D5A;
+}
+
+input::placeholder {
+    color: white;
+}
+
+input.button {
+  padding: 12px;
+  border-width: 0px;
+  font-size: 1em;
+    font-family: 'Armata', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color:#FD8225;
+  color: white;
+}

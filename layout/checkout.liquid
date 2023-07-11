@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+  {% render 'elevar-head-listener' %}
+  {% render 'elevar-head' %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    
+    <style>
+  #order-summary > div > div.order-summary__section.order-summary__section--discount > form:nth-child(2) > div {
+    border-color: #ff8201;
+    background-color: #ff8201;
+  }
+      #order-summary > div > div.order-summary__section.order-summary__section--discount > form:nth-child(2) > div > svg {
+        color: white;
+      }
+      
+      #order-summary > div > div.order-summary__section.order-summary__section--discount > form:nth-child(2) > div > div > p {
+        color: white;
+        font-size: 16px !important;
+      }
+      
+
+      
+            .november-promo {
+  padding: 2em;
+  margin: 0px;
+  background-color: black;
+  color: white;
+  display:flex;
+  justify-content:center;
+              text-align:center;
+}
+
+.november-promo-copy {
+  line-height: 25px;
+}
+      .orangevember {
+        color:white;
+        letter-spacing: 3px;
+        font-size: 1.5em;
+      }
+      
+            .disclaimer {
+        color:white;
+        letter-spacing: 0px;
+        font-size: 1.0em !important;
+      }
+
+                  .bottlelock-promo {
+  padding: 2em;
+  margin: 0px;
+  background-color: #5b594a;
+  color: white;
+  display:flex;
+  justify-content:center;
+              text-align:center;
+}
+      .mid-gray {
+          background-color: #72705f !important;
+      }
+
+            .light-gray {
+          background-color: #8c8a7c !important;
+      }
+
+                        .bfcm-promo {
+  padding: 2em;
+  margin: 0px;
+  background-color: #6d6b5b;
+  color: white;
+  display:flex;
+  justify-content:center;
+              text-align:center;
+}
+
+.main {
+  font-family: Oswald !important;
+}
+      
+      .sidebar {
+  font-family: Oswald !important;
+}
+      
+            .order-summary-toggle {
+  font-family: Oswald !important;
+}
+     
+      
+      
+</style>
+    
+    {{ checkout_scripts }}
+  </head>
+  <body>
+  {% render 'elevar-checkout-end' %}
+    {{ skip_to_content_link }}
+
+    <header class="banner" data-header role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header>
+    
+{% comment %}<div class="bottlelock-promo"><h3 class="november-promo-copy">BUYING A GEOPRESS® OR ULTRAPRESS® BOTTLE?<br><a href="https://www.grayl.com/discount/RENEW?redirect=/collections/replacement-purifier-filter-cartridges">DON'T FORGET TO ADD YOUR FREE CARTRIDGE</a><br><span class="orangevember">DISCOUNT CODE: RENEW</span><br><span class="disclaimer">CANNOT COMBINE WITH OTHER DISCOUNTS OR PROMOTIONS.</span></div>{% endcomment %}
+{% comment %}<div class="bottlelock-promo"><h3 class="november-promo-copy">20% OFF / END OF SEASON SALE<br><a href="https://grayl.com/discount/SUMMER20?redirect=/collections/shop-all">CLICK TO APPLY CODE & SHOP</a><br><span class="orangevember">CODE: SUMMER20</span></h3></div>{% endcomment %}    
+<div class="bottlelock-promo"><h3 class="november-promo-copy">BUNDLE & SAVE $50. HIP PACK + ULTRAPRESS KIT.<br><a href="https://grayl.com/discount/TASTETHERIVER/?redirect=/products/earthwell-grayl-hip-pack-4-5l">CLICK TO APPLY CODE & SHOP</a><br><span class="orangevember">CODE: TASTETHERIVER</span><br>CAN'T COMBINE W/ OTHER DISCOUNTS OR PROMOS.</h3></div>   
+<div class="bottlelock-promo mid-gray"><h3 class="november-promo-copy">FREE TITANIUM DINING SET ($52.95) W/ANY ULTRAPRESS® TI PURCHASE.<br><a href="https://grayl.com/discount/FREETISET?redirect=/collections/titanium-campware">CLICK TO APPLY CODE & SHOP</a><br><span class="orangevember">CODE: FREETISET</span><br>CAN'T COMBINE W/ OTHER DISCOUNTS OR PROMOS.</h3></div>   
+{% comment %}<div class="november-promo"><h3 class="november-promo-copy">BUYING A GEOPRESS OR ULTRAPRESS BOTTLE? <br> <a href="https://grayl.com/products/grayl-x-earthwell-pint">ADD A FREE CAMP CUP TO YOUR CART.</a><br><span class="orangevember">CODE: FREECUP</span><br>CAN'T COMBINE W/ OTHER DISCOUNTS OR PROMOS.</h3></div>{% endcomment %}
+{% comment %}<div class="bfcm-promo"><div class="november-promo-copy"><span class="orangevember"><h3>20% OFF HOLIDAY SALE!</h3><h3>CODE: BFCM20</h3></span><h3 style="font-size:1rem;">CAN'T COMBINE W/ OTHER DISCOUNTS OR PROMOS.</h3><p style="font-size:1rem;">*Holiday sale excludes 16.9oz UltraPress® Ti, Titanium Campware, & Hip Packs.</p></div></div>{% endcomment %}
+<div class="bottlelock-promo light-gray"><h3 class="november-promo-copy">BUY A BOTTLELOCK™ HIP PACK <br><a href="https://www.grayl.com/discount/BOTTLELOCK?redirect=/products/earthwell-grayl-hip-pack-4-5l">ADD YOUR FREE ROASTER® COFFEE BOTTLE</a><br><span class="orangevember">CODE: BOTTLELOCK</span><br>CAN'T COMBINE W/ OTHER DISCOUNTS OR PROMOS.</h3></div>
+{% comment %}<div class="november-promo"><h3 class="november-promo-copy"><span class="orangevember">ULTRAPRESS® TI BACKORDERS<br><span style="color:#ff8301;"> EST SHIP DATE IS JAN. 23</span></span></h3></div>{% endcomment %}
+    
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }} 
+          </header>
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+            {% section 'checkout-ig' %}
+          </main>
+          
+          {% comment %}{% section 'hip-pack-promo' %}{% endcomment %}
+          
+          
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    {{ tracking_code }}
+
+    
+  </body>
+</html>
+
+<script>
+
+if (Shopify.Checkout.step === "contact_information") {
+
+Checkout.$('[data-drawer-toggle="[data-order-summary]"]').click();
+
+}
+
+</script>
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+<script type="text/javascript">
+(function() {
+var avm = document.createElement('script'); avm.type = 'text/javascript'; avm.async = true;
+avm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.avmws.com/1018881/';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(avm, s);
+})();
+</script>
+
+<style>
+  
+
+    
+.yotpo.bottomLine .pull-left {
+    float: none !important;
+    text-align: center !important;
+  display: inline-block !important;
+}
+  
+
+  
+  
+.yotpo .pull-left {
+    float: none !important;
+    text-align: center !important;
+  display: inline-block !important;
+}
+
+ 
+.yotpo a.text-m {
+    display: inline-block !important;
+}
+  
+</style>
+
+
+{% section 'collection-header' %}
+
+<div id="CollectionAjaxResult" class="collection-content">
+  <div id="CollectionAjaxContent">
+    <div class="page-width">
+      <div class="grid">
+        <div class="grid__item medium-up--one-fifth grid__item--sidebar">
+          {% section 'collection-sidebar' %}
+        </div>
+        <div class="grid__item medium-up--four-fifths grid__item--content">
+          {% section 'collection-promotions-top-ULC' %}
+          {% section 'collection-template-ULC' %}
+          <div></div>
+          {% section 'collection-promotions-ULC' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

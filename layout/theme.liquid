@@ -1,0 +1,374 @@
+{%- comment %}<locksmith:fd80>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:fd80>{% endcomment -%}
+
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
+<head>
+
+   {{ locksmith_initializations }}
+   <!--Excluded pages from search engines-->
+  {% if handle contains 'gp23-covert-dummy' %}
+<meta name="robots" content="noindex">
+{% endif %}
+
+    {% if handle contains 'gp23-nature-dummy' %}
+<meta name="robots" content="noindex">
+{% endif %}
+
+  
+  {% render 'elevar-head-listener' %}
+  {% render 'elevar-head' %}<script>{% include 'civilpixel-loader' %}</script>
+  <meta name="google-site-verification" content="AIGYFTR4onI4ZVDCXI1hkuHtp7lOp8nEdfEp-5Q-iJo" />
+{% include "starapps-core" %}
+
+  <meta name="facebook-domain-verification" content="uul6gr39or15jwjdzcjeflv3ip2c13" />
+  <meta name="p:domain_verify" content="c18ab4e6cd9cacc196288bbb51c0d00d"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_button }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="alternate" hreflang="en" href="https://grayl.com/">
+  
+
+  
+  
+  <!--Bing Ad Test Script-->
+  <meta name="msvalidate.01" content="182FA61B0546D5B4F9795FE4B6C4155E" />
+  
+  <!--Bing Ad Tracking-->
+  <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5636924"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+
+  {%- if settings.favicon -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
+  {%- endif -%}
+
+  {% include 'seo-title' %}
+  <title>{{ seo_title }}</title>
+
+  {%- if page_description -%}
+  {%- comment %}<locksmith:bc64>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+    {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+  {%- comment %}</locksmith:bc64>{% endcomment -%}
+  {%- endif -%}
+
+  {% include 'social-meta-tags' %}
+
+  {% include 'font-face' %}
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+  
+ 
+{% comment %}
+{%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+{%- assign time_now = 'now' | date: '%s' %}
+{%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+{%- assign diffSeconds = time_now | minus: yotpo_live_time %}
+{%- if yotpo_offload_content == 'yes' and diffSeconds < 86400 -%}
+{{ 'yotpo-full-css.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+{% endcomment %}
+
+  {% style %}
+    .collection-item__title {
+      font-size: {{ settings.type_collection_size | times: 0.8 }}px;
+    }
+
+    @media screen and (min-width: 769px) {
+      .collection-item__title {
+        font-size: {{ settings.type_collection_size }}px;
+      }
+    }
+  
+    .sr-only {
+  		position: absolute;
+  		left: -10000px;
+     }
+  {% endstyle %}
+  
+  
+  <!--PINTEREST TAG REMOVED... INSTALLED VIA SHOPIFY APP -->
+  
+
+  
+  
+  
+  
+  <!-- Yotpo Code -->
+  <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/B62k5vwRrgu0Omi83RRnUewVhsgx9PAxAy2nwCvl/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
+<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/B62k5vwRrgu0Omi83RRnUewVhsgx9PAxAy2nwCvl" async></script>
+<style>
+  .yotpo-sr-bottom-line.yotpo-clickable.yotpo-bottom-line{justify-content: left !important;}
+</style>
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+    window.theme = window.theme || {};
+    theme.strings = {
+      addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }},
+      stockLabel: {{ 'products.product.stock_label' | t: count: '[count]' | json }},
+      savePrice: {{ 'products.general.save_html' | t: saved_amount: '[saved_amount]' | json }},
+      cartSavings: {{ 'cart.general.savings_html' | t: savings: '[savings]' | json }},
+      cartEmpty: {{ 'cart.general.empty' | t | json }},
+      cartTermsConfirmation: {{ 'cart.general.terms_confirm' | t | json }}
+    };
+    theme.settings = {
+      cartType: {{ settings.cart_type | json }},
+      moneyFormat: {{ shop.money_format | json }},
+      recentlyViewedEnabled: false,
+      quickView: {{ settings.quick_shop_enable }},
+      themeVersion: "1.3.1"
+    };
+  </script>
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+    window.theme = window.theme || {};
+    theme.strings = {
+      addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }},
+      stockLabel: {{ 'products.product.stock_label' | t: count: '[count]' | json }},
+      savePrice: {{ 'products.general.save_html' | t: saved_amount: '[saved_amount]' | json }},
+      cartEmpty: {{ 'cart.general.empty' | t | json }},
+      cartTermsConfirmation: {{ 'cart.general.terms_confirm' | t | json }}
+    };
+    theme.settings = {
+      dynamicVariantsEnable: true,
+      dynamicVariantType: {{ settings.variant_type | json }},
+      cartType: {{ settings.cart_type | json }},
+      currenciesEnabled: {{ settings.enable_currencies | json }},
+      moneyFormat: {{ shop.money_format | json }},
+      saveType: {{ settings.product_save_type | json }},
+      recentlyViewedEnabled: false,
+      quickView: {{ settings.quick_shop_enable }},
+      themeVersion: "2.1.1"
+    };
+  </script>
+
+  {{ content_for_header }}
+   
+  
+    <!-- Fenix Scripts -->
+    {{ 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js' | script_tag }}
+<script src="https://d1dg552qx9z0ed.cloudfront.net/v3.0/fenix-all-shipping-options.js"></script>
+<script src="https://d1dg552qx9z0ed.cloudfront.net/v4.0/fenix-fixd-estimate-4.0.0-beta.min.js"></script>
+    {{ 'fenix-cart-drawer.js' | asset_url | script_tag }}
+  <!-- Fenix Scripts -->
+  
+  
+    
+  <script src="{{ 'vendor-scripts-v2.js' | asset_url | split: '?' | first }}" defer="defer"></script>
+
+  {% if settings.enable_currencies %}
+    <script src="/services/javascripts/currencies.js" defer="defer"></script>
+    <script src="{{ 'currencies.jquery.min.js' | asset_url | split: '?' | first }}" defer="defer"></script>
+  {% endif %}
+
+  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+
+  {%- if template contains 'customers' -%}
+    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+  {%- endif -%}
+{% include "geo" %}
+
+<!-- Reddit Pixel -->
+<script>
+!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_l25ig9a7', {"optOut":false,"useDecimalCurrencyValues":true,"aaid":"<AAID-HERE>","email":"<EMAIL-HERE>","externalId":"<EXTERNAL-ID-HERE>","idfa":"<IDFA-HERE>"});rdt('track', 'PageVisit');
+</script>
+<!-- DO NOT MODIFY UNLESS TO REPLACE A USER IDENTIFIER -->
+<!-- End Reddit Pixel -->
+</head>
+
+<body class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if settings.enable_currencies %} currencies-enabled{% endif %}" data-transitions="false">
+  {% render 'elevar-body-end' %}
+
+  {% comment %}
+    Enable below script if page transitions enabled
+  {% endcomment %}
+  {% comment %}
+  <script type="text/javascript">window.setTimeout(function() { document.body.className += " loaded"; }, 25);</script>
+  {% endcomment %}
+
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  <div id="PageContainer" class="page-container">
+    <div class="transition-body">
+
+    {% section 'header' %}
+
+      <main class="main-content" id="MainContent">
+        {{ content_for_layout }}
+      </main>
+
+      {% section 'footer-promotions' %}
+      {% section 'footer' %}
+
+    </div>
+  </div>
+
+  {% section 'newsletter-popup' %}
+
+  {% if settings.cart_type == 'drawer' %}
+    {% include 'ajax-cart-template' %}
+  {% endif %}
+
+  {% if settings.enable_currencies %}
+    <span
+      id="CurrencyData"
+      class="hide"
+      data-shop-currency="{{ shop.currency }}"
+      data-default-currency="{{ settings.default_currency | default: shop.currency }}"
+      data-format="{{ settings.currency_format | default: 'money_with_currency_format' }}"
+      data-money-format="{{ shop.money_format | strip_html }}"
+      data-money-currency-format="{{ shop.money_with_currency_format | strip_html }}">
+    </span>
+  {% endif %}
+
+  {% include 'video-modal' %}
+  {% include 'photoswipe-template' %}
+  {% if template contains 'product' %}
+    {% include 'recently-viewed-product-template' %}
+  {% endif %}
+  
+  <!-- AvantLink Sitewide script -->
+<script type="text/javascript">
+(function() {
+var avm = document.createElement('script'); avm.type = 'text/javascript'; avm.async = true;
+avm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.avmws.com/1018881/';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(avm, s);
+})();
+  
+
+  
+  
+</script>
+  
+    <!-- Klarna -->
+    <script 
+  async 
+  src="https://na-library.klarnaservices.com/lib.js"
+  data-client-id="b0ae6486-d170-51ec-8398-149f55369776"
+></script>
+  
+  <!--Attentive SMS-->
+  <script src="https://cdn.attn.tv/grayl/dtag.js"></script>
+  
+  <!-- HC - Product page adjustments - 17 Nov '21 -->
+  {% if template contains 'product' %}
+  <script>
+    $(document).on('click', '.variant-input', function() {
+      var value = $(this).attr('data-value');
+      
+      $('.product__main-photos > .slick-slider').slick('slickUnfilter');
+      $('.product__main-photos > .slick-slider').slick('slickFilter', '[data-color="'+value+'"]').slick('slickGoTo', 0).slick('refresh');
+      
+      $('.product__thumbs').slick('slickUnfilter');
+      $('.product__thumbs').slick('slickFilter', '[data-color="'+value+'"]').slick('slickGoTo', 0).slick('refresh');
+      
+    });
+  </script>
+  {% endif %}
+
+<!-- <script>
+  setTimeout(() => {
+
+  let link = document.getElementsByClassName("yotpo-lightbox-product-details");
+  let button = document.getElementsByClassName("yotpo-lightbox-product-button");
+  let list = document.querySelector(".y-slider-container");
+  let track = document.querySelectorAll(".slick-track");
+  let image = document.querySelectorAll(".yotpo-hover-cta");
+  let parents = document.getElementsByClassName("grid-product__content");
+  let children = document.getElementsByClassName("text-m");  
+  let imageWrapper = document.querySelectorAll(".y-image-wrapper");
+  let flex = document.querySelectorAll(".flex-grid__item");
+  let stories = document.querySelectorAll(".stories-btn");
+  let insta = document.querySelectorAll(".yotpo-image");
+  let yButtons = document.querySelectorAll(".y-image-wrapper");
+  
+    if(link && button){
+      for(let i = 0; i < link.length; i++){
+		let buttons = button[i];
+        button[i].remove();
+        link[i].append(buttons);
+      }
+
+    }
+  
+  
+   if(parents && children){
+    for(let i = 0; i < parents.length; i++){
+	  let child = children[i];
+      children[i].remove();
+      parents[i].append(child);
+      }
+
+    }
+  
+  if(list){
+  console.log("test");
+  list.removeAttribute("role");
+  }
+ 
+  
+  if (track) {
+  	for (let i = 0; i < track.length; i++) {
+    	track[i].setAttribute("aria-label", "Slideshow Track");
+   	}
+  }
+
+  
+  if(image){
+    for(let i = 0; i < image.length; i++){
+      image[i].removeAttribute("role");
+      image[i].removeAttribute("tabindex");
+    }
+  }
+  
+  if(imageWrapper){
+    for(let i = 0; i < imageWrapper.length; i++){
+      imageWrapper[i].removeAttribute("role");
+      imageWrapper[i].removeAttribute("aria-label");
+    }
+  }
+
+  
+  if(insta){
+    for(let i = 0; i < insta.length; i++){
+      insta[i].setAttribute("alt", "");
+    }
+  }
+  
+
+  
+
+             
+ }, 600);
+  
+</script> -->
+
+  
+  
+  {% if template contains 'product' %}
+<script>
+var atcButtonID = "AddToCart-6611440926799";
+
+var atcButton = document.getElementById(atcButtonID);
+if(atcButton){
+	atcButton.addEventListener("click", function(event) {
+            rdt('track', 'AddToCart')
+	});
+}
+</script>
+{% endif %}
+
+  <script src="//prod.preordrly.com/Scripts/preorder.min.js?env=https://prod.preordrly.com&amp;v=1&amp;shop=grayl.myshopify.com"></script>
+</body>
+</html>

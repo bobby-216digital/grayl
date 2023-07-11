@@ -1,0 +1,36 @@
+<script type="text/javascript">
+(function() {
+var avm = document.createElement('script'); avm.type = 'text/javascript'; avm.async = true;
+avm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.avmws.com/1018881/';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(avm, s);
+})();
+</script>
+
+<!-- <style>
+  #ProductSection-2405362303055 > div > div > div > div:nth-child(2) > div > div.yotpo.QABottomLine.yotpo-small,
+  #ProductSection-2405362303055 > div > div > div > div:nth-child(2) > div > div.yotpo.QABottomLine.yotpo-medium,
+  #ProductSection-2405362303055 > div > div > div > div:nth-child(2) > div > div.yotpo.QABottomLine.yotpo-large,
+  #ProductSection-2405362303055 > div > div > div > div:nth-child(2) > div > div.yotpo.bottomLine.yotpo-small,
+    #ProductSection-2405362303055 > div > div > div > div:nth-child(2) > div > div.yotpo.bottomLine.yotpo-medium,
+    #ProductSection-2405362303055 > div > div > div > div:nth-child(2) > div > div.yotpo.bottomLine.yotpo-large,
+  #ProductSection-2405362303055 > div > div > div > div:nth-child(2) > div > br{
+    display:none !important;
+      visibility: hidden !important;
+  }
+</style> -->
+
+<!-- spurit_po-added -->
+{% include 'spurit_po-product-snippet' %}
+<!-- /spurit_po-added -->
+{% section 'product-sections-72hour' %}
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  };
+</script>

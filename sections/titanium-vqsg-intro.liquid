@@ -1,0 +1,43 @@
+<section style="background-image: url('https://cdn.shopify.com/s/files/1/2172/9959/files/VIDEO_BACKGROUND.jpg?v=1686089036'); background-size: cover;">
+  <div class="video-container">
+    <iframe src="https://player.vimeo.com/video/760018386?h=4caf319c73&autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    
+  </div>
+</section>
+
+
+
+<style>
+section {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative; /* This is added to allow the video-container to be positioned on top of the section */
+}
+
+.video-container {
+  width: 65%;
+  position: absolute; /* This positions the video-container on top of the section */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto; /* This centers the video-container within the section */
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+  .p-intro {
+    color:white;
+  }
+
+  /* mobile styles */
+@media only screen and (max-width: 600px) {
+  .video-container {
+    width: 100%;
+    padding: 0;/* This makes the video span the full width of the screen on mobile */
+  }
+}
+</style>
